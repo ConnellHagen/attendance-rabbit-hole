@@ -1,0 +1,73 @@
+public class MainAttendanceScript {
+
+	public static void main(String[] args) {
+		int daysPassed = 0;
+		while(daysPassed<=270) {
+			
+			//Blank line, get the day of the week, initialize variable
+			System.out.println("");
+			int weekDay = daysPassed % 7;
+			int suffixDeterminant = daysPassed % 10;
+			int suffixDeterminantBig = daysPassed % 100;
+			String dayOfTheWeekEnglish = null;
+			
+			//Convert the modulus into a day of the week, and print it
+			if(weekDay == 0) {
+				dayOfTheWeekEnglish = "Sunday";
+			} else if(weekDay == 1) {
+				dayOfTheWeekEnglish = "Monday";
+			} else if(weekDay == 2) {
+				dayOfTheWeekEnglish = "Tuesday";
+			} else if(weekDay == 3) {
+				dayOfTheWeekEnglish = "Wednesday";	
+			} else if(weekDay == 4) {
+				dayOfTheWeekEnglish = "Thursday";
+			} else if(weekDay == 5) {
+				dayOfTheWeekEnglish = "Friday";
+			} else if(weekDay == 6) {
+				dayOfTheWeekEnglish = "Saturday";
+			}
+			System.out.println("Today is: " + dayOfTheWeekEnglish);
+			
+			//Determine whether it is an attendance day or not
+			if(weekDay == 0 || weekDay == 2 || weekDay == 3 || weekDay == 5 || weekDay == 6) {
+				System.out.println("Do your attendance!");
+			} else {
+				System.out.println("Welcome back to School!");
+			}
+			
+			//Prints the day of the school year that it is
+			if(suffixDeterminantBig == 11 || suffixDeterminantBig == 12 || suffixDeterminantBig == 13) {
+				System.out.println("It's the " + daysPassed + "th day of the school year");
+			} else if(suffixDeterminant == 1) { 
+				System.out.println("It's the " + daysPassed + "st day of the school year");
+			} else if(suffixDeterminant == 2) { 
+				System.out.println("It's the " + daysPassed + "nd day of the school year");
+			} else if(suffixDeterminant == 3) { 
+				System.out.println("It's the " + daysPassed + "rd day of the school year");
+			} else {
+				System.out.println("It's the " + daysPassed + "th day of the school year");
+			}
+			
+			//Adds a message relative to Friday to the blurb
+			if(weekDay == 5) {
+				System.out.println("You made it to Friday! Woo!");
+			} else if(weekDay == 4 && daysPassed !=270) {
+				System.out.println("You're almost to Friday, keep it up!");
+			}
+			
+			//Congratulates the student on making it to the last day of school
+			if(daysPassed == 270) {
+				System.out.println("Have a great last day of school!!");
+				System.out.println("Enjoy Your Summer");
+			} else {
+				int daysLeft = 270 - daysPassed;
+				System.out.println(daysLeft + " days left until summer!");
+			}
+			//Start the next day of the year
+			daysPassed++;
+		}
+
+	}
+
+}
